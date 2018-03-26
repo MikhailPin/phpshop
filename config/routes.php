@@ -20,6 +20,11 @@ return array(
     'user/logout' => 'user/logout',
     'cabinet/edit' => 'cabinet/edit',
     'cabinet' => 'cabinet/index',
+         // Управление blog:    
+    'admin/blog/create' => 'adminBlog/create',
+    'admin/blog/update/([0-9]+)' => 'adminBlog/update/$1',
+    'admin/blog/delete/([0-9]+)' => 'adminBlog/delete/$1',
+    'admin/blog' => 'adminBlog/index',
     // Управление товарами:    
     'admin/product/create' => 'adminProduct/create',
     'admin/product/update/([0-9]+)' => 'adminProduct/update/$1',
@@ -40,11 +45,12 @@ return array(
     // О магазине
     'contacts' => 'site/contact',
     'about' => 'site/about',
-    // Вывод одной новости
-    'news/([0-9]+)' => 'blog/view/$1', //actionIndex to NewsController
+       'blog/([0-9]+)' => 'blog/view/$1', //actionIndex to NewsController
     // Вывод всех новостей
-    'news' => 'blog/index', //actionIndex to NewsController
+    'blog' => 'blog/index', //actionIndex to NewsController
     // Главная страница
     'index.php' => 'site/index', // actionIndex в SiteController
     '' => 'site/index', // actionIndex в SiteController
+    
+   
 );

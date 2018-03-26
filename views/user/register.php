@@ -22,6 +22,8 @@
                         <form action="#" method="post">
                             <input type="text" name="name" placeholder="Имя" value="<?php echo $name; ?>"/>
                             <input type="email" name="email" placeholder="E-mail" value="<?php echo $email; ?>"/>
+                            <input type="tel" name="phone" placeholder="Phone" value="<?php echo $phone; ?>"/>
+                            <input type="text" name="messager" placeholder="Messager" value="<?php echo $messager; ?>"/>
                             <input type="password" name="password" placeholder="Пароль" value="<?php echo $password; ?>"/>
                             <input type="submit" name="submit" class="btn btn-default" value="Регистрация" />
                         </form>

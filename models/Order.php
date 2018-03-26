@@ -109,6 +109,27 @@ class Order
         // Возвращаем данные
         return $result->fetch();
     }
+    
+    public static function getOrderByUserId($user_id)
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        // Текст запроса к БД
+        $sql = 'SELECT * FROM product_order WHERE user_id = :user_id';
+
+        $result = $db->prepare($sql);
+        $result->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
+        // Указываем, что хотим получить данные в виде массива
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+
+        // Выполняем запрос
+        $result->execute();
+
+        // Возвращаем данные
+        return $result->fetch();
+    }
 
     /**
      * Удаляет заказ с заданным id

@@ -17,6 +17,31 @@ class CabinetController
 
         // Получаем информацию о пользователе из БД
         $user = User::getUserById($userId);
+        $productsInCart = Cart::getProducts();
+
+        if ($productsInCart) {
+            // Если в корзине есть товары, получаем полную информацию о товарах для списка
+            // Получаем массив только с идентификаторами товаров
+            $productsIds = array_keys($productsInCart);
+
+            // Получаем массив с полной информацией о необходимых товарах
+            $products = Product::getProdustsByIds($productsIds);
+
+            // Получаем общую стоимость товаров
+            $totalPrice = Cart::getTotalPrice($products);
+        }
+
+        $order = Order::getOrderByUserId($userId);
+
+   
+        // Получаем массив с идентификаторами и количеством товаров
+        $productsQuantity = json_decode($order['products'], true);
+
+        // Получаем массив с индентификаторами товаров
+        $productsIds = array_keys($productsQuantity);
+
+        // Получаем список товаров в заказе
+        $products = Product::getProdustsByIds($productsIds);
 
         // Подключаем вид
         require_once(ROOT . '/views/cabinet/index.php');

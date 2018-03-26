@@ -20,6 +20,7 @@ class SiteController
         // Список товаров для слайдера
         $sliderProducts = Product::getRecommendedProducts();
 
+        $blogList = Blog::getBlogList();
         // Подключаем вид
         require_once(ROOT . '/views/site/index.php');
         return true;

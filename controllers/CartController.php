@@ -14,6 +14,7 @@ class CartController
      */
     public function actionAdd($id)
     {
+        
         // Добавляем товар в корзину
         Cart::addProduct($id);
 
@@ -51,6 +52,10 @@ class CartController
      */
     public function actionIndex()
     {
+        
+        if (User::isGuest()){
+             header("Location: user/register");
+        }
         // Список категорий для левого меню
         $categories = Category::getCategoriesList();
 
@@ -113,6 +118,8 @@ class CartController
             $userId = User::checkLogged();
             $user = User::getUserById($userId);
             $userName = $user['name'];
+            $userPhone = $user['phone'];
+            $userMessager = $user['messager'];
         } else {
             // Если гость, поля формы останутся пустыми
             $userId = false;
@@ -124,6 +131,7 @@ class CartController
             // Получаем данные из формы
             $userName = $_POST['userName'];
             $userPhone = $_POST['userPhone'];
+             $userMessager = $user['userMessager'];
             $userComment = $_POST['userComment'];
 
             // Флаг ошибок

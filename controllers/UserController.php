@@ -14,6 +14,8 @@ class UserController
         $name = false;
         $email = false;
         $password = false;
+        $phone = false;
+        $messager = false;
         $result = false;
 
         // Обработка формы
@@ -23,7 +25,8 @@ class UserController
             $name = $_POST['name'];
             $email = $_POST['email'];
             $password = $_POST['password'];
-
+            $phone = $_POST['phone'];
+            $messager = $_POST['messager'];
             // Флаг ошибок
             $errors = false;
 
@@ -44,7 +47,7 @@ class UserController
             if ($errors == false) {
                 // Если ошибок нет
                 // Регистрируем пользователя
-                $result = User::register($name, $email, $password);
+                $result = User::register($name, $email, $password,$phone,$messager);
             }
         }
 
@@ -105,12 +108,12 @@ class UserController
      */
     public function actionLogout()
     {
-        // Стартуем сессию
-        session_start();
+      
+       
         
         // Удаляем информацию о пользователе из сессии
         unset($_SESSION["user"]);
-        
+        session_destroy();
         // Перенаправляем пользователя на главную страницу
         header("Location: /");
     }

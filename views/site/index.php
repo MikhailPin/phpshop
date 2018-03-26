@@ -94,9 +94,76 @@
 
                 </div>
             </div><!--/recommended_items-->
+            
+                <div class="recommended_items"><!--recommended_items-->
+                    <h2 class="title text-center">Рекомендуемые товары</h2>
+                    
+                    <div class="cycle-slideshow" 
+                         data-cycle-fx=carousel
+                         data-cycle-timeout=5000
+                         data-cycle-carousel-visible=3
+                         data-cycle-carousel-fluid=true
+                         data-cycle-slides="div.item"
+                         data-cycle-prev="#prev"
+                         data-cycle-next="#next"
+                         >                        
+                             <?php foreach ($blogList as $blogItem): ?>
+                            <div class="item">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            
+                                            <h2>$<?php echo $blogItem['title']; ?></h2>
+                                            <a href="/product/<?php echo $blogItem['id']; ?>">
+                                                <?php echo $blogItem['author_name']; ?>
+                                            </a>
+                                            <br/><br/>
+                                            <a href="#" class="btn btn-default add-to-cart" data-id="<?php echo $blogItem['id']; ?>"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
 
+                    <a class="left recommended-item-control" id="prev" href="#recommended-item-carousel" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="right recommended-item-control" id="next"  href="#recommended-item-carousel" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                </div>
+            </div><!--/recommended_items-->
+
+       
+       
         </div>
     </div>
+
+
+
+<?php foreach ($blogList as $blogItem):?>
+                           
+                            <div class="post">
+                                <h2 class="title"><a href="/blog/<?php echo $blogItem['id'];?>"><?php echo $blogItem['title'];?></a></h2>
+                                <p class="byline"><?php echo $blogItem['date'];?></p>
+                                <div class="entry">
+                                    <p><?php echo $blogItem['short_content'];?></p>
+                                </div>
+                                <div class="meta">
+                                    <p class="links"><a href="/blog/<?php echo $blogItem['id'];?>" class="comments">Read more</a></p>
+                                </div>
+                            </div>
+                        <?php endforeach;?> 
+
+
+
+
+ 
+
+
 
 </section>
 

@@ -55,6 +55,10 @@
                                         <p>Номер телефона</p>
                                         <input type="text" name="userPhone" placeholder="" value="<?php echo $userPhone; ?>"/>
 
+                                       <p>Ссылка на профиль в месаджере</p>
+                                        <input type="text" name="userMessager" placeholder="" value="<?php echo $userMessager; ?>"/>
+
+                                       
                                         <p>Комментарий к заказу</p>
                                         <input type="text" name="userComment" placeholder="Сообщение" value="<?php echo $userComment; ?>"/>
 

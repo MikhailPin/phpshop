@@ -36,8 +36,8 @@
                             <div class="col-sm-6">
                                 <div class="contactinfo">
                                     <ul class="nav nav-pills">
-                                        <li><a href="#"><i class="fa fa-phone"></i> +38 093 000 11 22</a></li>
-                                        <li><a href="#"><i class="fa fa-envelope"></i> zinchenko.us@gmail.com</a></li>
+                                        <li><a href="#"><i class="fa fa-phone"></i> +38(071) 375-29-79</a></li>
+                                        <li><a href="#"><i class="fa fa-envelope"></i> support@gmail.com</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                                         </li>
                                         <?php if (User::isGuest()): ?>                                        
                                             <li><a href="/user/login/"><i class="fa fa-lock"></i> Вход</a></li>
-                                            <li><a href="/user/register/"><i class="fa fa-z"></i> Регистрация</a></li>
+                                            <li><a href="/user/register/"><i class="fa fa-lock"></i> Регистрация</a></li>
 
                                         <?php else: ?>
                                             <li><a href="/cabinet/"><i class="fa fa-user"></i> Аккаунт</a></li>
@@ -106,6 +106,8 @@
                                             </ul>
                                         </li>
                                         <li><a href="/about/">О магазине</a></li>
+                                        <li><a href="/blog/">Новости</a></li>
+
                                         <li><a href="/contacts/">Контакты</a></li>
                                     </ul>
                                 </div>
