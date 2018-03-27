@@ -2,6 +2,10 @@
 
 <section>
     <div class="container">
+        <div class="bg"><img src="/template/images/index/main.jpg" alt="main">
+        </div>
+
+
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
@@ -11,7 +15,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a href="/category/<?php echo $categoryItem['id']; ?>">
+                     <a href="/category/<?php echo $categoryItem['id']; ?>">
                                             <?php echo $categoryItem['name']; ?>
                                         </a>
                                     </h4>
@@ -95,8 +99,8 @@
                 </div>
             </div><!--/recommended_items-->
             
-                <div class="recommended_items"><!--recommended_items-->
-                    <h2 class="title text-center">Рекомендуемые товары</h2>
+          <!--      <div class="recommended_items">recommended_items
+                <h2 class="title text-center">Новости</h2>      глючит заголовок 
                     
                     <div class="cycle-slideshow" 
                          data-cycle-fx=carousel
@@ -135,28 +139,13 @@
                     </a>
 
                 </div>
-            </div><!--/recommended_items-->
+            </div>       -->
 
        
        
         </div>
     </div>
 
-
-
-<?php foreach ($blogList as $blogItem):?>
-                           
-                            <div class="post">
-                                <h2 class="title"><a href="/blog/<?php echo $blogItem['id'];?>"><?php echo $blogItem['title'];?></a></h2>
-                                <p class="byline"><?php echo $blogItem['date'];?></p>
-                                <div class="entry">
-                                    <p><?php echo $blogItem['short_content'];?></p>
-                                </div>
-                                <div class="meta">
-                                    <p class="links"><a href="/blog/<?php echo $blogItem['id'];?>" class="comments">Read more</a></p>
-                                </div>
-                            </div>
-                        <?php endforeach;?> 
 
 
 

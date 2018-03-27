@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 26 2018 г., 12:00
+-- Время создания: Мар 27 2018 г., 08:28
 -- Версия сервера: 5.5.41-log
 -- Версия PHP: 5.3.29
 
@@ -35,14 +35,15 @@ CREATE TABLE IF NOT EXISTS `blog` (
   `author_name` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Дамп данных таблицы `blog`
 --
 
 INSERT INTO `blog` (`id`, `title`, `date`, `short_content`, `content`, `author_name`, `image`) VALUES
-(1, 'cvbvbcvbc', '2018-03-11', 'gdfgdfg', 'gdfgdsgf', 'dsgdfgsfg', '');
+(1, 'cvbvbcvbc', '2018-03-11', 'gdfgdfg', 'gdfgdsgf', 'dsgdfgsfg', ''),
+(2, 'Новость 2', '2018-03-22', '100', 'выаыва', 'выавыа', '');
 
 -- --------------------------------------------------------
 
@@ -56,17 +57,23 @@ CREATE TABLE IF NOT EXISTS `category` (
   `sort_order` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Дамп данных таблицы `category`
 --
 
 INSERT INTO `category` (`id`, `name`, `sort_order`, `status`) VALUES
-(13, 'Ноутбуки', 1, 1),
-(14, 'Планшеты', 2, 1),
-(15, 'Мониторы', 3, 1),
-(16, 'Игровые компьютеры', 4, 1);
+(13, 'Электроника', 1, 1),
+(14, 'Развлечения', 2, 1),
+(15, 'Рестораны', 3, 1),
+(16, 'Оптовая торговля', 4, 1),
+(17, 'Продукты питания', 5, 1),
+(18, 'Автомобили', 6, 1),
+(19, 'Промышленность', 7, 1),
+(20, 'Спорт ', 8, 1),
+(21, 'Красота и здоровье', 9, 1),
+(22, 'Обучение', 10, 1);
 
 -- --------------------------------------------------------
 
@@ -123,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `product_order` (
   `products` text NOT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=50 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
 
 --
 -- Дамп данных таблицы `product_order`
@@ -134,7 +141,9 @@ INSERT INTO `product_order` (`id`, `user_name`, `user_phone`, `user_comment`, `u
 (46, 'САША1', 'g3424242342', '', 4, '2015-05-18 15:34:42', '{"44":3,"43":3}', 1),
 (47, 'fdsfsf', '+38099999999', 'sdfsdfsdf', 0, '2018-03-26 07:34:01', '{"45":1,"44":1,"43":1}', 1),
 (48, 'Vasya', '+380714320661', '', 6, '2018-03-26 08:13:54', '{"45":1}', 1),
-(49, 'Vasya', '+380714320661', '', 6, '2018-03-26 08:28:36', '{"45":1}', 1);
+(49, 'Vasya', '+380714320661', '', 6, '2018-03-26 08:28:36', '{"45":1}', 1),
+(50, 'Администратор', '2342342423', 'hi', 4, '2018-03-26 18:46:06', '{"42":3,"41":1,"40":1,"45":1}', 1),
+(51, 'Администратор', '+39344234234', 'dsf', 4, '2018-03-26 18:48:55', '{"44":1}', 1);
 
 -- --------------------------------------------------------
 
@@ -151,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `phone` varchar(255) NOT NULL,
   `messager` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Дамп данных таблицы `user`
@@ -159,9 +168,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `role`, `phone`, `messager`) VALUES
 (3, 'Александр', 'alex@mail.com', '111111', '', '', ''),
-(4, 'Виктор Зинченко', 'admin@admin.com', 'admin', 'admin', '', ''),
+(4, 'Администратор', 'admin@admin.com', 'admin123', 'admin', '+77777777777', 'admin_telegram'),
 (5, 'Сергей', 'serg@mail.com', '111111', '', '', ''),
-(6, 'Vasya', 'vasya@gmail.com', '123456', '', '+380714320661', '+380714320661');
+(6, 'Vasya', 'vasya@gmail.com', '123456', '', '+380714320661', '+380714320661'),
+(7, 'Игорь', 'test@test.ru', '11111111', '', '+7777777', 'telegram');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -131,7 +131,7 @@ class CartController
             // Получаем данные из формы
             $userName = $_POST['userName'];
             $userPhone = $_POST['userPhone'];
-             $userMessager = $user['userMessager'];
+             $userMessager = $_POST['userMessager'];
             $userComment = $_POST['userComment'];
 
             // Флаг ошибок
@@ -164,6 +164,8 @@ class CartController
                 }
             }
         }
+
+
 
         // Подключаем вид
         require_once(ROOT . '/views/cart/checkout.php');

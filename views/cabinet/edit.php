@@ -26,6 +26,10 @@
                             <p>Пароль:</p>
                             <input type="password" name="password" placeholder="Пароль" value="<?php echo $password; ?>"/>
                             <br/>
+                             <p>Номер телефона</p>
+                               <input type="text" name="phone" placeholder="" value="<?php echo $phone; ?>"/>
+                                <p>Ссылка на профиль в месаджере</p>
+                                 <input type="text" name="messager" placeholder="" value="<?php echo $messager; ?>"/>
                             <input type="submit" name="submit" class="btn btn-default" value="Сохранить" />
                         </form>
                     </div><!--/sign up form-->

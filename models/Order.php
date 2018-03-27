@@ -186,4 +186,26 @@ class Order
         return $result->execute();
     }
 
+
+     public static function getImage($id)
+    {
+        // Название изображения-пустышки
+        $noImage = 'no-image.jpg';
+
+        // Путь к папке с изображениями
+        $path = '/upload/images/products/';
+
+        // Путь к изображению новости
+        $pathToProductsImage = $path . $id . '.jpg';
+
+        if (file_exists($_SERVER['DOCUMENT_ROOT'].$pathToProductsImage)) {
+            // Если изображение для новости существует
+            // Возвращаем путь изображения новости
+            return $pathToProductsImage;
+        }
+
+        // Возвращаем путь изображения-пустышки
+        return $path . $noImage;
+    }
+
 }

@@ -39,7 +39,7 @@ class User
      * @param string $password <p>Пароль</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function edit($id, $name, $password,$phone,$messager)
+    public static function edit($id, $name, $password, $phone, $messager)
     {
         // Соединение с БД
         $db = Db::getConnection();

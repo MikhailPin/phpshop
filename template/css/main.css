@@ -43,6 +43,10 @@ a:focus {
     outline-offset: 0;
 }
 
+.bg {
+    margin-bottom: 30px;
+}
+
 a {
     -webkit-transition: 300ms;
     -moz-transition: 300ms;

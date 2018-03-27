@@ -38,6 +38,7 @@
                             </tr>
                             <?php foreach ($products as $product): ?>
                                 <tr>
+                                     <td><img src="<?php echo Product::getImage($product['id']); ?>" alt="" /></td>
                                     <td><?php echo $product['code'];?></td>
                                     <td>
                                         <a href="/product/<?php echo $product['id'];?>">

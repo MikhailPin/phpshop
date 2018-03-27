@@ -62,6 +62,8 @@ class CabinetController
         // Заполняем переменные для полей формы
         $name = $user['name'];
         $password = $user['password'];
+        $phone = $user['phone'];
+        $messager = $user['messager'];
 
         // Флаг результата
         $result = false;
@@ -72,6 +74,8 @@ class CabinetController
             // Получаем данные из формы редактирования
             $name = $_POST['name'];
             $password = $_POST['password'];
+            $phone = $_POST['phone'];
+            $messager = $_POST['messager'];
 
             // Флаг ошибок
             $errors = false;
@@ -86,7 +90,7 @@ class CabinetController
 
             if ($errors == false) {
                 // Если ошибок нет, сохраняет изменения профиля
-                $result = User::edit($userId, $name, $password);
+                $result = User::edit($userId, $name, $password, $phone, $messager);
             }
         }
 
