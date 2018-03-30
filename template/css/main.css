@@ -12,11 +12,37 @@ body {
     position: relative;
     font-weight:400px;
 }
-
+table img{
+    max-width: 100px;
+}
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+}
+.add-modal{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+.add-item{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap: wrap;
+    color: #fff;
+    padding: 15px 20px;
+    background: #4caf50;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+}
+.add-item:last-child{
+    margin-bottom: 0;
 }
 .page-wrapper {
     min-height: 100%;
@@ -1071,19 +1097,24 @@ h2.title {
     padding-left: 0;
 }
 
-.recommended-item-control {
+.recommended-item-control, .owl-prev, .owl-next {
     position: absolute;
     top: 41%;
 }
-
-.recommended-item-control i {
+.owl-prev:focus, .owl-next:focus{
+    outline: none!important;
+}
+.owl-next{
+    right: 0;
+}
+.recommended-item-control i, .owl-prev i, .owl-next i {
     background: none repeat scroll 0 0 #FE980F;
     color: #FFFFFF;
     font-size: 20px;
     padding: 4px 10px;
 }
 
-.recommended-item-control i:hover {
+.recommended-item-control i:hover, .owl-prev i:hover, .owl-next i:hover {
     background: #ccccc6;
 }
 

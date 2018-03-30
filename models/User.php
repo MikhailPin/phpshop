@@ -6,6 +6,28 @@
 class User
 {
 
+	 public static function recoverPassword($email){
+		$db = Db::getConnection();
+
+		if (!$this->checkEmailExists($email))
+			return null;
+		
+        // Текст запроса к БД
+        $sql = "UPDATE user 
+            SET password = :password
+            WHERE email = :email";
+
+		$newPass = md5($email);
+		mail($email, 'RecoverPassword', $newPass );
+		
+        // Получение и возврат результатов. Используется подготовленный запрос
+        $result = $db->prepare($sql);
+     
+        $result->bindParam(':email', $email, PDO::PARAM_STR);
+        $result->bindParam(':password', $newPass, PDO::PARAM_STR);
+		return $result->execute();
+        
+	 }
     /**
      * Регистрация пользователя 
      * @param string $name <p>Имя</p>

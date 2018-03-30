@@ -11,6 +11,8 @@
         <link href="/template/css/prettyPhoto.css" rel="stylesheet">
         <link href="/template/css/price-range.css" rel="stylesheet">
         <link href="/template/css/animate.css" rel="stylesheet">
+        <link href="/template/css/jquery.jgrowl.min.css" rel="stylesheet">
+        <link href="/template/css/owl.carousel.min.css" rel="stylesheet">
         <link href="/template/css/main.css" rel="stylesheet">
         <link href="/template/css/responsive.css" rel="stylesheet">
 

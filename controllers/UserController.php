@@ -8,6 +8,41 @@ class UserController
     /**
      * Action для страницы "Регистрация"
      */
+	 
+	   public function actionPasswordRecover()
+    {
+        // Переменные для формы
+        $email = false;    
+
+        // Обработка формы
+        if (isset($_POST['submit'])) {
+            // Если форма отправлена 
+            // Получаем данные из формы          
+            $email = $_POST['email'];
+           
+            // Флаг ошибок
+            $errors = false;
+
+           
+            if (!User::checkEmail($email)) {
+                $errors[] = 'Неправильный email';
+            }
+           
+            
+            if ($errors == false) {
+                // Если ошибок нет
+                // Регистрируем пользователя
+                $result = User::recoverPassword( $email);
+				if ($result==null)
+					$errors[] = 'Неправильный email';
+            }
+        }
+
+        // Подключаем вид
+        require_once(ROOT . '/views/user/passwordRecover.php');
+        return true;
+    }
+	
     public function actionRegister()
     {
         // Переменные для формы

@@ -9,6 +9,20 @@ var RGBChange = function () {
 /*scroll to top*/
 
 $(document).ready(function () {
+        $(".news-slider").owlCarousel({
+            items: 3,
+            navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
+            autoplay: true,
+            nav: true
+        });
+        $(".add-to-cart").click(function () {
+            var id = $(this).attr("data-id");
+            $.post("/cart/addAjax/"+id, {}, function (data) {
+                $("#cart-count").html(data);
+            });
+            $.jGrowl("Товар добавлен в корзину!");
+            return false;
+        });
     $(function () {
         $.scrollUp({
             scrollName: 'scrollUp', // Element ID
