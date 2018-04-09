@@ -10,11 +10,31 @@ var RGBChange = function () {
 
 $(document).ready(function () {
         $(".news-slider").owlCarousel({
-            items: 3,
-            navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
+            items: 4,
+            navText: ["",""],
+            margin: 30,
             autoplay: true,
             nav: true
         });
+        $(".main-slider").owlCarousel({
+            items: 1,
+            dots: true,
+            dotsContainer: ".main-sliders .owl-dots",
+            autoplay: true,
+            nav: false
+        });
+          var userFeed = new Instafeed({
+            get: 'user',
+            userId: '2306227916',
+            clientId: '651058380a4c4042b3e7cd9790620b82',
+            accessToken: '2306227916.6510583.3d450a4b79e1467caf517811ae40c2e6',
+            resolution: 'low_resolution',
+            template: '<div class="item iteminsta"><a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}" /></a></div>',
+            sortBy: 'most-recent',
+            limit: 4,
+            links: false
+          });
+          userFeed.run();
         $(".add-to-cart").click(function () {
             var id = $(this).attr("data-id");
             $.post("/cart/addAjax/"+id, {}, function (data) {

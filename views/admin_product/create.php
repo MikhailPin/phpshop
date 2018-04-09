@@ -1,4 +1,4 @@
-<?php include ROOT . '/views/layouts/header_admin.php'; ?>
+place<?php include ROOT . '/views/layouts/header_admin.php'; ?>
 
 <section>
     <div class="container">
@@ -35,7 +35,7 @@
                         <input type="text" name="name" placeholder="" value="">
 
                         <p>Артикул</p>
-                        <input type="text" name="code" placeholder="" value="">
+                        <input type="text" name="place" placeholder="" value="">
 
                         <p>Стоимость, $</p>
                         <input type="text" name="price" placeholder="" value="">
@@ -53,8 +53,11 @@
 
                         <br/><br/>
 
-                        <p>Производитель</p>
-                        <input type="text" name="brand" placeholder="" value="">
+                        <p>Компания (Юр.лицо, магазин, представительство)</p>
+                        <input type="text" name="company" placeholder="" value="">
+
+                        <p>Скидка</p>
+                        <input type="number" name="sales" placeholder="% скидки на товар" value="">
 
                         <p>Изображение товара</p>
                         <input type="file" name="image" placeholder="" value="">

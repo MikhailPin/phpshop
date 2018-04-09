@@ -1,3 +1,4 @@
+<?php include ROOT . '/views/layouts/head.php'; ?>
 <?php include ROOT . '/views/layouts/header.php'; ?>
 
 <section>
@@ -27,27 +28,30 @@
                     <div class="row">
                         <div class="col-sm-5">
                             <div class="view-product">
+                                <div class="sticks">
+                                    <div class="stick">-<?php echo $product['sales']; ?>%</div>
+                                </div>
                                 <img src="<?php echo Product::getImage($product['id']); ?>" alt="" />
                             </div>
                         </div>
                         <div class="col-sm-7">
                             <div class="product-information"><!--/product-information-->
-
+                            
                                 <?php if ($product['is_new']): ?>
                                     <img src="/template/images/product-details/new.jpg" class="newarrival" alt="" />
                                 <?php endif; ?>
 
                                 <h2><?php echo $product['name']; ?></h2>
-                                <p>Код товара: <?php echo $product['code']; ?></p>
+                                <p>Адрес: <?php echo $product['place']; ?></p>
                                 <span>
-                                    <span>US $<?php echo $product['price']; ?></span>
+                                    <span><?php echo $product['price']; ?> Руб</span>
                                     <a href="#" data-id="<?php echo $product['id']; ?>"
                                        class="btn btn-default add-to-cart">
                                         <i class="fa fa-shopping-cart"></i>В корзину
                                     </a>
                                 </span>
                                 <p><b>Наличие:</b> <?php echo Product::getAvailabilityText($product['availability']); ?></p>
-                                <p><b>Компания:</b> <?php echo $product['brand']; ?></p>
+                                <p><b>Компания:</b> <?php echo $product['company']; ?></p>
                             </div><!--/product-information-->
                         </div>
                     </div>
@@ -64,5 +68,5 @@
         </div>
     </div>
 </section>
-
+<?php include ROOT . '/views/layouts/insta.php'; ?>
 <?php include ROOT . '/views/layouts/footer.php'; ?>

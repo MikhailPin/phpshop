@@ -27,7 +27,10 @@
                         <input type="text" name="name" placeholder="" value="<?php echo $product['name']; ?>">
 
                         <p>Артикул</p>
-                        <input type="text" name="code" placeholder="" value="<?php echo $product['code']; ?>">
+                        <input type="text" name="place" placeholder="" value="<?php echo $product['place']; ?>">
+
+                        <p>Скидка</p>
+                        <input type="number" name="sales" placeholder="% скидки на товар" value="<?php echo $product['sales']; ?>">
 
                         <p>Стоимость, $</p>
                         <input type="text" name="price" placeholder="" value="<?php echo $product['price']; ?>">
@@ -47,7 +50,7 @@
                         <br/><br/>
 
                         <p>Производитель</p>
-                        <input type="text" name="brand" placeholder="" value="<?php echo $product['brand']; ?>">
+                        <input type="text" name="company" placeholder="" value="<?php echo $product['company']; ?>">
 
                         <p>Изображение товара</p>
                         <img src="<?php echo Product::getImage($product['id']); ?>" width="200" alt="" />

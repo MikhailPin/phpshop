@@ -1,5 +1,5 @@
+<?php include ROOT . '/views/layouts/head.php'; ?>
 <?php include ROOT . '/views/layouts/header.php'; ?>
-
           <section>
             <div id="container">
                 <div id="page-bgtop">

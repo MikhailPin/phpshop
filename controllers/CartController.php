@@ -54,7 +54,7 @@ class CartController
     {
         
         if (User::isGuest()){
-             header("Location: user/register");
+             header("Location: ../user/register");
         }
         // Список категорий для левого меню
         $categories = Category::getCategoriesList();

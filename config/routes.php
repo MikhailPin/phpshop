@@ -2,7 +2,10 @@
 
 return array(
     // Товар:
+    'product_p/search/ajax/([0-9а-яА-Яa-zA-Z]+)' => 'product/searchAjax/$1', // actionView в ProductController
+    'product_t/search' => 'product/search', // actionView в ProductController
     'product/([0-9]+)' => 'product/view/$1', // actionView в ProductController
+
     // Каталог:
     'catalog' => 'catalog/index', // actionIndex в CatalogController
     // Категория товаров:

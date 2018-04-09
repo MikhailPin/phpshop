@@ -39,15 +39,16 @@ class AdminProductController extends AdminBase
             // Если форма отправлена
             // Получаем данные из формы
             $options['name'] = $_POST['name'];
-            $options['code'] = $_POST['code'];
+            $options['place'] = $_POST['place'];
             $options['price'] = $_POST['price'];
             $options['category_id'] = $_POST['category_id'];
-            $options['brand'] = $_POST['brand'];
+            $options['company'] = $_POST['company'];
             $options['availability'] = $_POST['availability'];
             $options['description'] = $_POST['description'];
             $options['is_new'] = $_POST['is_new'];
             $options['is_recommended'] = $_POST['is_recommended'];
             $options['status'] = $_POST['status'];
+            $options['sales'] = $_POST['sales'];
 
             // Флаг ошибок в форме
             $errors = false;
@@ -100,16 +101,16 @@ class AdminProductController extends AdminBase
             // Если форма отправлена
             // Получаем данные из формы редактирования. При необходимости можно валидировать значения
             $options['name'] = $_POST['name'];
-            $options['code'] = $_POST['code'];
+            $options['place'] = $_POST['place'];
             $options['price'] = $_POST['price'];
             $options['category_id'] = $_POST['category_id'];
-            $options['brand'] = $_POST['brand'];
+            $options['company'] = $_POST['company'];
             $options['availability'] = $_POST['availability'];
             $options['description'] = $_POST['description'];
             $options['is_new'] = $_POST['is_new'];
             $options['is_recommended'] = $_POST['is_recommended'];
             $options['status'] = $_POST['status'];
-
+            $options['sales'] = $_POST['sales'];
             // Сохраняем изменения
             if (Product::updateProductById($id, $options)) {
 

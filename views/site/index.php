@@ -1,145 +1,117 @@
+<?php include ROOT . '/views/layouts/head.php'; ?>
 <?php include ROOT . '/views/layouts/header.php'; ?>
-
-<section>
+<section class="slider-section">
     <div class="container">
-        <div class="bg"><img src="/template/images/index/main.jpg" alt="main">
-        </div>
-
-
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="left-sidebar">
-                    <h2>Каталог</h2>
-                    <div class="panel-group category-products">
-                        <?php foreach ($categories as $categoryItem): ?>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                     <a href="/category/<?php echo $categoryItem['id']; ?>">
-                                            <?php echo $categoryItem['name']; ?>
-                                        </a>
-                                    </h4>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
+        <div class="main-sliders">
+            <div class="main-slider owl-carousel">
+                <div class="item">
+                    <div class="image"><img src="/template/images/slide.jpg" alt=""></div>
+                    <div class="sticks">
+                        <div class="stick stick-sale">-31%</div>
+                    </div>
+                    <div class="info">
+                        <h3 class="main-title">Скидка на детский абонимент
+в донецкий аквапарк «Aquasferra»  </h3>
+                        <div class="main-nav">
+                            <a href="#" class="main-link">Узнать больше <i></i></a>
+                            <div class="main-price"><b>255</b> руб</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image"><img src="/template/images/slide.jpg" alt=""></div>
+                    <div class="sticks">
+                        <div class="stick stick-sale">-31%</div>
+                    </div>
+                    <div class="info">
+                        <h3 class="main-title">Скидка на детский абонимент
+в донецкий аквапарк «Aquasferra»  </h3>
+                        <div class="main-nav">
+                            <a href="#" class="main-link">Узнать больше <i></i></a>
+                            <div class="main-price"><b>255</b> руб</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image"><img src="/template/images/slide.jpg" alt=""></div>
+                    <div class="sticks">
+                        <div class="stick stick-sale">-31%</div>
+                    </div>
+                    <div class="info">
+                        <h3 class="main-title">Скидка на детский абонимент
+в донецкий аквапарк «Aquasferra»  </h3>
+                        <div class="main-nav">
+                            <a href="#" class="main-link">Узнать больше <i></i></a>
+                            <div class="main-price"><b>255</b> руб</div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-9 padding-right">
-                <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center">Последние товары</h2>
-
-                    <?php foreach ($latestProducts as $product): ?>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="<?php echo Product::getImage($product['id']); ?>" alt="" />
-                                        <h2>$<?php echo $product['price']; ?></h2>
-                                        <p>
-                                            <a href="/product/<?php echo $product['id']; ?>">
-                                                <?php echo $product['name']; ?>
-                                            </a>
-                                        </p>
-                                        <a href="#" class="btn btn-default add-to-cart" data-id="<?php echo $product['id']; ?>"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                    </div>
-                                    <?php if ($product['is_new']): ?>
-                                        <img src="/template/images/home/new.png" class="new" alt="" />
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-
-
-                </div><!--features_items-->
-
-                <div class="recommended_items"><!--recommended_items-->
-                    <h2 class="title text-center">Рекомендуемые товары</h2>
-                    
-                    <div class="cycle-slideshow" 
-                         data-cycle-fx=carousel
-                         data-cycle-timeout=5000
-                         data-cycle-carousel-visible=3
-                         data-cycle-carousel-fluid=true
-                         data-cycle-slides="div.item"
-                         data-cycle-prev="#prev"
-                         data-cycle-next="#next"
-                         >                        
-                             <?php foreach ($sliderProducts as $sliderItem): ?>
-                            <div class="item">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="<?php echo Product::getImage($sliderItem['id']); ?>" alt="" />
-                                            <h2>$<?php echo $sliderItem['price']; ?></h2>
-                                            <a href="/product/<?php echo $sliderItem['id']; ?>">
-                                                <?php echo $product['name']; ?>
-                                            </a>
-                                            <br/><br/>
-                                            <a href="#" class="btn btn-default add-to-cart" data-id="<?php echo $sliderItem['id']; ?>"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-                                        <?php if ($sliderItem['is_new']): ?>
-                                            <img src="/template/images/home/new.png" class="new" alt="" />
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-
-                    <a class="left recommended-item-control" id="prev" href="#recommended-item-carousel" data-slide="prev">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a class="right recommended-item-control" id="next"  href="#recommended-item-carousel" data-slide="next">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-
-                </div>
-            </div><!--/recommended_items-->
-            <div class="clearfix"></div>
-                <div class="recommended_items">
-                <h2 class="title text-center">Новости</h2> 
-                    
-                    <div class="news-slider owl-carousel">                        
-                             <?php foreach ($blogList as $blogItem): ?>
-                            <div class="item">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            
-                                            <h2><?php echo $blogItem['title']; ?></h2>
-                                            <a href="/product/<?php echo $blogItem['id']; ?>">
-                                                <?php echo $blogItem['author_name']; ?>
-                                            </a>
-                                            <br/><br/>
-                                            <a href="#" class="btn btn-default add-to-cart" data-id="<?php echo $blogItem['id']; ?>"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-
-
-                </div>
-            </div>      
-
-       
-       
+            <div class="owl-dots"></div>
         </div>
+        <div class="sub-slider">
+                <div class="item">
+                    <div class="image"><img src="/template/images/slide1.jpg" alt=""></div>
+                    <div class="sticks">
+                        <div class="stick stick-sale">-18%</div>
+                    </div>
+                    <div class="info">
+                        <h3 class="main-title">До 10 сеансов LPG-массажа всего тела
+и прессотерапии в салоне «Nova Я»</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image"><img src="/template/images/slide2.jpg" alt=""></div>
+                    <div class="sticks">
+                        <div class="stick stick-sale">-27%</div>
+                    </div>
+                    <div class="info">
+                        <h3 class="main-title">Скидка до 27% на покупку месячного
+абонимента с персональным тренером</h3>
+                    </div>
+                </div>
+        </div>
+        <div class="clearfix"></div>
     </div>
-
-
-
-
-
- 
-
-
-
 </section>
 
+<section class="section feature">
+    <div class="container">
+        <div class="section-flex flex">
+            <div class="section-text">
+                <h2 class="section-title">Популярные категории</h2>
+                <p class="section-desc">Самые популярные категории на любрй вкус. Самые большие скидки в «КупоныSale» </p>
+            </div>
+            <a href="/catalog/" class="all-view">Смотреть все категории</a>
+        </div>
+        <div class="feature-list flex">
+            <div class="feature-item">
+                <img src="/template/images/feature1.jpg" alt="">
+                <a href="/category/17">Электроника</a>
+            </div>
+            <div class="feature-item">
+                <img src="/template/images/feature2.jpg" alt="">
+                <a href="/category/18">Развлечения</a>
+            </div>
+            <div class="feature-item">
+                <img src="/template/images/feature3.jpg" alt="">
+                <a href="/category/19">Спорт</a>
+            </div>
+            <div class="feature-item">
+                <img src="/template/images/feature4.jpg" alt="">
+                <a href="/category/20">Автомобили</a>
+            </div>
+            <div class="feature-item">
+                <img src="/template/images/feature5.jpg" alt="">
+                <a href="/category/21">Оптовая торговля</a>
+            </div>
+            <div class="feature-item">
+                <img src="/template/images/feature6.jpg" alt="">
+                <a href="/category/22">Шопинг</a>
+            </div>
+        </div>
+    </div>
+</section>
+<?php include ROOT . '/views/layouts/news.php'; ?>
+<?php include ROOT . '/views/layouts/insta.php'; ?>
 <?php include ROOT . '/views/layouts/footer.php'; ?>

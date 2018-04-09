@@ -21,12 +21,14 @@
 
             <table class="table-bordered table-striped table">
                 <tr>
-                    <th>ID товара</th>
-                    <th>Артикул</th>
-                    <th>Название товара</th>
-                    <th>Цена</th>
-                    <th></th>
-                    <th></th>
+                    <th>ID новости</th>
+                    <th>Название новости</th>
+                    <th>Дата</th>
+                    <th>короткое описание</th>
+                    <th>Полное описание</th>
+                    <th>Автор новости</th>
+                    <th>Изменить</th>
+                    <th>Удалить</th>
                 </tr>
                 <?php foreach ($blogList as $blog): ?>
                     <tr>

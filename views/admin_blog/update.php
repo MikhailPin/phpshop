@@ -23,18 +23,19 @@
                 <div class="login-form">
                     <form action="#" method="post" enctype="multipart/form-data">
 
-                        <p>Название товара</p>
+                        <p>Название новости</p>
                         <input type="text" name="title" placeholder="" value="<?php echo $blog['title']; ?>">
 
-                        <p>Артикул</p>
+                        <p>Дата</p>
                         <input type="text" name="date" placeholder="" value="<?php echo $blog['date']; ?>">
 
-                        <p>Стоимость</p>
+                        <p>Короткое описание</p>
                         <input type="text" name="short_content" placeholder="" value="<?php echo $blog['short_content']; ?>">
+                        <p>Полное описание</p>
 
                           <textarea name="content" ><?php echo $blog['content']; ?></textarea>
                           
-                       <p>Стоимость</p>
+                       <p>Автор новости</p>
                         <input type="text" name="author_name" placeholder="" value="<?php echo $blog['author_name']; ?>">
                         
                       

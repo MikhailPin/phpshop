@@ -9,13 +9,13 @@
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><a href="/admin">Админпанель</a></li>
-                    <li><a href="/admin/blog">Управление товарами</a></li>
-                    <li class="active">Редактировать товар</li>
+                    <li><a href="/admin/blog">Управление новостями</a></li>
+                    <li class="active">Редактировать новость</li>
                 </ol>
             </div>
 
 
-            <h4>Добавить новый товар</h4>
+            <h4>Добавить новую новость</h4>
 
             <br/>
 
@@ -31,16 +31,18 @@
                 <div class="login-form">
                     <form action="#" method="post" enctype="multipart/form-data">
 
-                        <p>Название товара</p>
+                        <p>Название новости</p>
                         <input type="text" name="title" placeholder="" value="">
 
-                        <p>Артикул</p>
+                        <p>Дата выпуска</p>
                         <input type="date" name="date" placeholder="" value="">
 
-                        <p>Стоимость, $</p>
+                        <p>Короткое описание</p>
                         <input type="text" name="short_content" placeholder="" value="">
+                        <p>Полное описание</p>
                         
                         <textarea name="content"></textarea>
+                        <p>Автор новости</p>
                         
                          <input type="text" name="author_name" placeholder="" value="">
                         

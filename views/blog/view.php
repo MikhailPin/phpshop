@@ -1,3 +1,4 @@
+<?php include ROOT . '/views/layouts/head.php'; ?>
 <?php include ROOT . '/views/layouts/header.php'; ?>
             <div id="page">
                 <div id="page-bgtop">

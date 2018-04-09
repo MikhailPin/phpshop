@@ -24,16 +24,18 @@
                     <th>ID товара</th>
                     <th>Артикул</th>
                     <th>Название товара</th>
-                    <th>Цена</th>
-                    <th></th>
-                    <th></th>
+                    <th>Цена (руб)</th>
+                    <th>Скидка (%)</th>
+                    <th>Изменить</th>
+                    <th>Удалить</th>
                 </tr>
                 <?php foreach ($productsList as $product): ?>
                     <tr>
                         <td><?php echo $product['id']; ?></td>
-                        <td><?php echo $product['code']; ?></td>
+                        <td><?php echo $product['place']; ?></td>
                         <td><?php echo $product['name']; ?></td>
-                        <td><?php echo $product['price']; ?></td>  
+                        <td><?php echo $product['price']; ?></td>
+                        <td><?php echo (isset($product['sales'])?$product['sales']:0); ?></td>
                         <td><a href="/admin/product/update/<?php echo $product['id']; ?>" title="Редактировать"><i class="fa fa-pencil-square-o"></i></a></td>
                         <td><a href="/admin/product/delete/<?php echo $product['id']; ?>" title="Удалить"><i class="fa fa-times"></i></a></td>
                     </tr>

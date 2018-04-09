@@ -21,7 +21,7 @@ class Product
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = 'SELECT id, name, price, is_new FROM product '
+        $sql = 'SELECT id, name, price, is_new, sales, company FROM product '
                 . 'WHERE status = "1" ORDER BY id DESC '
                 . 'LIMIT :count';
 
@@ -42,9 +42,55 @@ class Product
             $productsList[$i]['id'] = $row['id'];
             $productsList[$i]['name'] = $row['name'];
             $productsList[$i]['price'] = $row['price'];
+            $productsList[$i]['sales'] = $row['sales'];
             $productsList[$i]['is_new'] = $row['is_new'];
+            $productsList[$i]['company'] = $row['company'];
+
             $i++;
         }
+        return $productsList;
+    }
+
+    public static function getSameProducts($productName,$count = self::SHOW_BY_DEFAULT)
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        // Текст запроса к БД
+        $sql = "SELECT *  FROM product "
+            . "WHERE  name LIKE '$productName%' or name LIKE '%$productName%' ORDER BY id DESC "
+            . "LIMIT :count";
+
+        // Используется подготовленный запрос
+        $result = $db->prepare($sql);
+        $result->bindParam(':count', $count, PDO::PARAM_INT);
+       // $result->bindParam(':productName', $productName, PDO::PARAM_STR);
+
+        // Указываем, что хотим получить данные в виде массива
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+
+        // Выполнение коменды
+        $result->execute();
+
+
+        // Получение и возврат результатов
+        $i = 0;
+        $productsList = array();
+        while ($row = $result->fetch()) {
+            $productsList[$i]['id'] = $row['id'];
+            $productsList[$i]['name'] = $row['name'];
+            $productsList[$i]['price'] = $row['price'];
+            $productsList[$i]['is_new'] = $row['is_new'];
+            $productsList[$i]['description'] = $row['description'];
+            $productsList[$i]['place'] = $row['place'];
+            $productsList[$i]['sales'] = $row['sales'];
+            $productsList[$i]['price'] = $row['price'];
+            $productsList[$i]['company'] = $row['company'];
+            $productsList[$i]['availability'] = $row['availability'];
+            $i++;
+        }
+
+
         return $productsList;
     }
 
@@ -64,7 +110,7 @@ class Product
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = 'SELECT id, name, price, is_new FROM product '
+        $sql = 'SELECT id, name, price, is_new, sales, company FROM product '
                 . 'WHERE status = 1 AND category_id = :category_id '
                 . 'ORDER BY id ASC LIMIT :limit OFFSET :offset';
 
@@ -85,6 +131,9 @@ class Product
             $products[$i]['name'] = $row['name'];
             $products[$i]['price'] = $row['price'];
             $products[$i]['is_new'] = $row['is_new'];
+            $products[$i]['sales'] = $row['sales'];
+            $products[$i]['company'] = $row['company'];
+
             $i++;
         }
         return $products;
@@ -168,9 +217,12 @@ class Product
         $products = array();
         while ($row = $result->fetch()) {
             $products[$i]['id'] = $row['id'];
-            $products[$i]['code'] = $row['code'];
+            $products[$i]['place'] = $row['place'];
             $products[$i]['name'] = $row['name'];
             $products[$i]['price'] = $row['price'];
+            $products[$i]['sales'] = $row['sales'];
+            $products[$i]['company'] = $row['company'];
+
             $i++;
         }
         return $products;
@@ -186,7 +238,7 @@ class Product
         $db = Db::getConnection();
 
         // Получение и возврат результатов
-        $result = $db->query('SELECT id, name, price, is_new FROM product '
+        $result = $db->query('SELECT id, name, price, is_new, sales, company FROM product '
                 . 'WHERE status = "1" AND is_recommended = "1" '
                 . 'ORDER BY id DESC');
         $i = 0;
@@ -196,6 +248,9 @@ class Product
             $productsList[$i]['name'] = $row['name'];
             $productsList[$i]['price'] = $row['price'];
             $productsList[$i]['is_new'] = $row['is_new'];
+            $productsList[$i]['sales'] = $row['sales'];
+            $productsList[$i]['company'] = $row['company'];
+
             $i++;
         }
         return $productsList;
@@ -211,14 +266,17 @@ class Product
         $db = Db::getConnection();
 
         // Получение и возврат результатов
-        $result = $db->query('SELECT id, name, price, code FROM product ORDER BY id ASC');
+        $result = $db->query('SELECT id, name, price, place, sales, company FROM product ORDER BY id ASC');
         $productsList = array();
         $i = 0;
         while ($row = $result->fetch()) {
             $productsList[$i]['id'] = $row['id'];
             $productsList[$i]['name'] = $row['name'];
-            $productsList[$i]['code'] = $row['code'];
+            $productsList[$i]['place'] = $row['place'];
             $productsList[$i]['price'] = $row['price'];
+            $productsList[$i]['sales'] = $row['sales'];
+            $productsList[$i]['company'] = $row['company'];
+
             $i++;
         }
         return $productsList;
@@ -258,30 +316,32 @@ class Product
         $sql = "UPDATE product
             SET 
                 name = :name, 
-                code = :code, 
+                place = :place, 
                 price = :price, 
                 category_id = :category_id, 
-                brand = :brand, 
+                company = :company, 
                 availability = :availability, 
                 description = :description, 
                 is_new = :is_new, 
                 is_recommended = :is_recommended, 
-                status = :status
+                status = :status,
+                sales = :sales
             WHERE id = :id";
 
         // Получение и возврат результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
         $result->bindParam(':id', $id, PDO::PARAM_INT);
         $result->bindParam(':name', $options['name'], PDO::PARAM_STR);
-        $result->bindParam(':code', $options['code'], PDO::PARAM_STR);
+        $result->bindParam(':place', $options['place'], PDO::PARAM_STR);
         $result->bindParam(':price', $options['price'], PDO::PARAM_STR);
         $result->bindParam(':category_id', $options['category_id'], PDO::PARAM_INT);
-        $result->bindParam(':brand', $options['brand'], PDO::PARAM_STR);
+        $result->bindParam(':company', $options['company'], PDO::PARAM_STR);
         $result->bindParam(':availability', $options['availability'], PDO::PARAM_INT);
         $result->bindParam(':description', $options['description'], PDO::PARAM_STR);
         $result->bindParam(':is_new', $options['is_new'], PDO::PARAM_INT);
         $result->bindParam(':is_recommended', $options['is_recommended'], PDO::PARAM_INT);
         $result->bindParam(':status', $options['status'], PDO::PARAM_INT);
+        $result->bindParam(':sales', $options['sales'], PDO::PARAM_INT);
         return $result->execute();
     }
 
@@ -297,24 +357,25 @@ class Product
 
         // Текст запроса к БД
         $sql = 'INSERT INTO product '
-                . '(name, code, price, category_id, brand, availability,'
-                . 'description, is_new, is_recommended, status)'
+                . '(name, place, price, category_id, company, availability,'
+                . 'description, is_new, is_recommended, status,sales)'
                 . 'VALUES '
-                . '(:name, :code, :price, :category_id, :brand, :availability,'
-                . ':description, :is_new, :is_recommended, :status)';
+                . '(:name, :place, :price, :category_id, :company, :availability,'
+                . ':description, :is_new, :is_recommended, :status,:sales)';
 
         // Получение и возврат результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
         $result->bindParam(':name', $options['name'], PDO::PARAM_STR);
-        $result->bindParam(':code', $options['code'], PDO::PARAM_STR);
+        $result->bindParam(':place', $options['place'], PDO::PARAM_STR);
         $result->bindParam(':price', $options['price'], PDO::PARAM_STR);
         $result->bindParam(':category_id', $options['category_id'], PDO::PARAM_INT);
-        $result->bindParam(':brand', $options['brand'], PDO::PARAM_STR);
+        $result->bindParam(':company', $options['company'], PDO::PARAM_STR);
         $result->bindParam(':availability', $options['availability'], PDO::PARAM_INT);
         $result->bindParam(':description', $options['description'], PDO::PARAM_STR);
         $result->bindParam(':is_new', $options['is_new'], PDO::PARAM_INT);
         $result->bindParam(':is_recommended', $options['is_recommended'], PDO::PARAM_INT);
         $result->bindParam(':status', $options['status'], PDO::PARAM_INT);
+        $result->bindParam(':sales', $options['sales'], PDO::PARAM_INT);
         if ($result->execute()) {
             // Если запрос выполенен успешно, возвращаем id добавленной записи
             return $db->lastInsertId();

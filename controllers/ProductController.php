@@ -24,4 +24,31 @@ class ProductController
         return true;
     }
 
+    public function actionSearchAjax($product){
+
+         $product = Product::getSameProducts($product);
+
+        return $product;
+    }
+
+    public function actionSearch(){
+
+        $productList = false;
+        $product = false;
+        if (isset($_POST['submit'])) {
+            $product = $_POST["search"];
+            $productList = Product::getSameProducts($product);
+
+        }
+        $errors = false;
+
+        // Валидируем значения
+        if ($productList==null) {
+            $errors[] = "В поиске ничего не найдено по запросу [$product]";
+        }
+
+        require_once(ROOT . '/views/product/search.php');
+        return true;
+
+     }
 }

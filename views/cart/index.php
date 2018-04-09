@@ -1,3 +1,4 @@
+<?php include ROOT . '/views/layouts/head.php'; ?>
 <?php include ROOT . '/views/layouts/header.php'; ?>
 
 <section>
@@ -30,6 +31,7 @@
                         <p>Вы выбрали такие товары:</p>
                         <table class="table-bordered table-striped table">
                             <tr>
+                                <th>Изображение</th>
                                 <th>Код товара</th>
                                 <th>Название</th>
                                 <th>Стомость, $</th>
@@ -39,7 +41,7 @@
                             <?php foreach ($products as $product): ?>
                                 <tr>
                                      <td><img src="<?php echo Product::getImage($product['id']); ?>" alt="" /></td>
-                                    <td><?php echo $product['code'];?></td>
+                                    <td><?php echo $product['place'];?></td>
                                     <td>
                                         <a href="/product/<?php echo $product['id'];?>">
                                             <?php echo $product['name'];?>
@@ -55,7 +57,7 @@
                                 </tr>
                             <?php endforeach; ?>
                                 <tr>
-                                    <td colspan="4">Общая стоимость, $:</td>
+                                    <td colspan="5">Общая стоимость, Руб:</td>
                                     <td><?php echo $totalPrice;?></td>
                                 </tr>
                             

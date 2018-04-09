@@ -1,3 +1,5 @@
+<?php include ROOT . '/views/layouts/head.php'; ?>
+<body class="catalog">
 <?php include ROOT . '/views/layouts/header.php'; ?>
 
 <section>
@@ -5,7 +7,6 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
-                    <h2>Каталог</h2>
                     <div class="panel-group category-products">
                         <?php foreach ($categories as $categoryItem): ?>
                             <div class="panel panel-default">
@@ -26,25 +27,24 @@
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center">Последние товары</h2>
 
                     <?php foreach ($categoryProducts as $product): ?>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="<?php echo Product::getImage($product['id']); ?>" alt="" />
-                                        <h2>$<?php echo $product['price']; ?></h2>
-                                        <p>
-                                            <a href="/product/<?php echo $product['id']; ?>">
-                                                <?php echo $product['name']; ?>
-                                            </a>
-                                        </p>
-                                        <a href="/cart/add/<?php echo $product['id']; ?>" class="btn btn-default add-to-cart" data-id="<?php echo $product['id']; ?>"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                    </div>
-                                    <?php if ($product['is_new']): ?>
-                                        <img src="/template/images/home/new.png" class="new" alt="" />
-                                    <?php endif; ?>
+                        <div class="product-item">
+                            <div class="product-image">
+                                <div class="sticks">
+                                    <div class="stick">- 18%</div>
+                                </div>
+                                <img src="<?php echo Product::getImage($product['id']); ?>" alt="">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name"><?php echo $product['name'];?></h3>
+                                <div class="product-flex flex">
+                                    <p class="product-desc">Название компании</p>
+                                    <div class="product-price"><b><?php echo $product['price'];?></b> руб</div>
+                                </div>
+                                <div class="product-flex product-btn flex">
+                                    <a href="/product/<?php echo $product['id'];?>" class="view-more">Узнать больше</a>
+                                    <a href="#" data-id="<?php echo $product['id'];?>" class="add-to-cart add-cart">В корзину <i></i></a>
                                 </div>
                             </div>
                         </div>
